@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="home-container">
+    <h1>🚀 Welcome to Todo App</h1>
+    <p>Manage your daily tasks easily and efficiently</p>
+
+    <div class="buttons">
+        <a href="/login/"><button>Login</button></a>
+        <a href="/todo/"><button>Go to Todo</button></a>
+    </div>
+</div>
+
+<style>
+    .home-container {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: #333;
+    }
+
+    p {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 20px;
+        margin: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background: #667eea;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #5a67d8;
+    }
+</style>
+
+{% endblock %}

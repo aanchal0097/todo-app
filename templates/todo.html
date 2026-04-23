@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+        }
+
+        .task {
+            margin: 10px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📝 Todo App</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Enter task" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <div>
+            {% for task in tasks %}
+                <div class="task">
+                    {% if task.completed %}
+                        <span class="completed">✔ {{ task.title }}</span>
+                    {% else %}
+                        {{ task.title }}
+                        <a href="/complete/{{ task.id }}/">✅</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}
