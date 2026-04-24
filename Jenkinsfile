@@ -1,27 +1,32 @@
-pipeline{
+pipeline {
     agent any 
 
     environment {
         IMAGE_NAME = "sharmaanchal01/todo-app"
     }
-    stages{
-        stage{
-            steps('Build'){
+
+    stages {
+
+        stage('Build') {
+            steps {
                 echo "Building"
             }
         }
-        stage{
-            steps('Test'){
+
+        stage('Test') {
+            steps {
                 echo "Skipping the test"
             }
         }
-        stage{
-            steps('Docker Build'){
+
+        stage('Docker Build') {
+            steps {
                 sh 'docker build -t sharmaanchal01/todo-app .'
             }
         }
-        stage{
-            steps('Docker Push'){
+
+        stage('Docker Push') {
+            steps {
                 sh 'docker push sharmaanchal01/todo-app'
             }
         }
